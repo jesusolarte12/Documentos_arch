@@ -112,11 +112,6 @@
     "format": "|",
     "tooltip": false,
   },
-  "custom/power": {
-    "tooltip": false,
-    "on-click": "wlogout -p layer-shell &",
-    "format": "⏻",
-  },
   "custom/notification": {
     "escape": true,
     "exec": "swaync-client -swb",
