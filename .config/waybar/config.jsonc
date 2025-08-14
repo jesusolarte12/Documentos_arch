@@ -2,33 +2,52 @@
   "layer": "bottom",
   "position": "top",
   "height": 40,
-  "spacing": 2,
+  "spacing": 1,
   "exclusive": true,
   "gtk-layer-shell": true,
   "passthrough": false,
   "fixed-center": true,
-  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-left": ["hyprland/workspaces" /*"hyprland/window"*/],
   "modules-center": ["mpris"],
   "modules-right": [
     "cpu",
     "memory",
     "custom/temperature",
     "pulseaudio",
-    "clock",
+    //"clock",
     "clock#simpleclock",
     "tray",
     "battery",
+    "network",
     "custom/notification"
   ],
 
-   "custom/temperature": {
+  "custom/temperature": {
     "format": " {}",
     "interval": 5,
     "exec": "sensors | grep 'Package id 0:' | awk '{print $4}' | tr -d '+'"
   },
+  
+  /*"network": {
+    "interface": "wlan0",
+    "interval": 2,
+    "format-wifi": "",
+    "format-ethernet": "",
+    "format-disconnected": "",
+    "tooltip-format": "{ifname} - {ipaddr}"
+  },*/
+  
+  "network": {
+    "interface": "enp0s20f0u4u2",
+    "interval": 2,
+    "format-wifi": "",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰤭",
+    "tooltip-format": "{ifname} - {ipaddr}"
+  },
 
   "battery": {
-    "format": "{capacity}% ",
+    "format": "{capacity}%",
     "format-charging": "{capacity}% ⏫",
     "format-plugged": "{capacity}% 🔌",
     "format-full": "🔋 {capacity}%",
@@ -42,38 +61,38 @@
     "on-click": "playerctl -p spotify play-pause",
     "on-click-right": "spotifatius toggle-liked",
     "on-click-middle": "playerctl -p spotify next",
-    "exec": "spotifatius monitor",
+    "exec": "spotifatius monitor"
   },
 
   "mpris": {
     "player": "spotify",
-    "dynamic-order": ["artist", "title"],
+    "dynamic-order": ["title"],
     "format": "{player_icon} {dynamic}",
     "format-paused": "{status_icon} <i>{dynamic}</i>",
     "status-icons": {
-      "paused": "",
+      "paused": ""
     },
     "player-icons": {
-      "default": "",
-    },
+      "default": ""
+    }
   },
   "hyprland/workspaces": {
     "on-click": "activate",
     "format": "{id}",
     "all-outputs": true,
     "disable-scroll": false,
-    "active-only": false,
+    "active-only": false
   },
   "hyprland/window": {
-    "format": "{title}",
+    "format": "{title}"
   },
   "tray": {
     "show-passive-items": true,
-    "spacing": 10,
+    "spacing": 10
   },
   "clock#simpleclock": {
     "tooltip": false,
-    "format": " {:%H:%M}",
+    "format": " {:%H:%M}"
   },
   "clock": {
     "format": " {:L%a %d %b}",
@@ -83,34 +102,34 @@
         "months": "<span color='#cdd6f4'><b>{}</b></span>",
         "today": "<span color='#f38ba8' weight='700'><u>{}</u></span>",
         "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
-        "weeks": "<span color='#a6e3a1'><b>W{}</b></span>",
+        "weeks": "<span color='#a6e3a1'><b>W{}</b></span>"
       },
       "mode": "month",
       "mode-mon-col": 1,
-      "on-scroll": 1,
+      "on-scroll": 1
     },
-    "tooltip-format": "<span color='#cdd6f4' font='Lexend 16'><tt><small>{calendar}</small></tt></span>",
+    "tooltip-format": "<span color='#cdd6f4' font='Lexend 16'><tt><small>{calendar}</small></tt></span>"
   },
   "cpu": {
     "format": " {usage}%",
     "tooltip": true,
-    "interval": 1,
+    "interval": 1
   },
   "memory": {
-    "format": " {used:0.1f}Gi",
+    "format": " {used:0.1f}Gi"
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-muted": "  muted",
     "format-icons": {
       "headphone": "",
-      "default": [" ", " ", " "],
+      "default": [" ", " ", " "]
     },
-    "on-click": "pavucontrol",
+    "on-click": "pavucontrol"
   },
   "custom/sep": {
     "format": "|",
-    "tooltip": false,
+    "tooltip": false
   },
   "custom/notification": {
     "escape": true,
@@ -119,10 +138,10 @@
     "format": "{icon}",
     "format-icons": {
       "none": "󰅺",
-      "notification": "󰡟",
+      "notification": "󰡟"
     },
     "on-click": "sleep 0.1 && swaync-client -t -sw",
     "return-type": "json",
-    "tooltip": false,
-  },
+    "tooltip": false
+  }
 }
