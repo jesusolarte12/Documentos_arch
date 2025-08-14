@@ -1,0 +1,27 @@
+window {
+  font-family: "Sans";
+  font-size: 14px;
+  background-color: rgba(30, 30, 46, 0.9);
+  color: #ffffff;
+  border: 2px solid #89b4fa;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+#input {
+  margin: 5px;
+  padding: 8px;
+  background-color: rgba(24, 24, 37, 0.9);
+  color: #cdd6f4;
+  border-radius: 5px;
+}
+
+#entry {
+  padding: 8px;
+  border-radius: 6px;
+}
+
+#entry:selected {
+  background-color: #89b4fa;
+  color: #1e1e2e;
+}
